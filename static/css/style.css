@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #1f2933;
+  --dark-2: #2b2f33;
+  --light: #ffffff;
+  --muted: #9ca3af;
+  --accent: #f59e0b;
+  --text: #9ca3af;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--dark);
+  color: var(--text);
+  min-height: 200vh;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: var(--light);
+  color: var(--dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.logo {
+  height: 5em;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.txt-btn-grp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+  margin-left: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-text {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.appointment-btn {
+  background-color: var(--accent);
+  border: none;
+  color: var(--dark);
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.6em 1.4em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.appointment-btn:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+.card {
+  background-color: var(--dark-2);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.block {
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  background-color: var(--dark-2);
+  border-radius: 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2em, 2vw, 2.4em);
+}
+
+.block1 {
+  background-image: url('static/images/background.png');
+}
+
+.block2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4vh;
+}
+
+.block5 {
+  padding: 4vh;
+  gap: 100px;
+}
+
+.block6 {
+  padding: 2vh;
+}
+
+.block7 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-us {
+  max-width: 85ch;
+  width: 90%;
+  margin: 0 auto;
+  text-indent: 1.5em;
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.5em, 2vw, 1.6em);
+  padding: 6vw;
+  overflow: hidden;
+}
+
+.testimonial {
+  padding-top: 2em;
+  column-count: 3;
+  gap: 25px;
+}
+
+.testimonial-item {
+  border-left: 4px solid var(--accent);
+  padding-left: 1em;
+  margin-bottom: 2em;
+  color: var(--text);
+  font-size: 0.9em;
+  font-style: italic;
+
+}
+
+.other-services {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5em;
+  gap: 1em;
+}
+
+.posing,
+.logo2,
+.logo3,
+.drawing {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.posing {
+  flex: 1 1 35%;
+  max-width: 75vh;
+  max-height: 75vh;
+  overflow-y: auto;
+  background-color: #333;
+}
+
+.logo2,
+.logo3 {
+  flex: 1 1 50%;
+  overflow-y: auto;
+}
+
+.logo2 {
+  max-width: 100vh;
+  max-height: 60vh;
+}
+
+.logo3 {
+  max-width: 80vh;
+  max-height: 100vh;
+}
+
+.drawing {
+  flex: 1 1 65%;
+  max-width: 75vh;
+  max-height: 75vh;
+  overflow-y: auto;
+  background-color: #333;
+}
+
+.Contacting {
+  background-color: var(--dark-2);
+  border-radius: 20px;
+  padding: 4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 600px) {
+  .txt-btn-grp {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .button-text {
+    white-space: normal;
+  }
+
+  .appointment-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
