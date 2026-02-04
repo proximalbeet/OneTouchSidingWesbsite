@@ -6,6 +6,7 @@
     <title>One Touch Siding</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carousel.css') }}">
 </head>
 <body>
     <header>
@@ -24,10 +25,43 @@
         </div>
 
         <div class="block block2">
-            <p class="about-us">
-                We are a construction company specializing in siding...
-            </p>
-            <img src="{{ url_for('static', filename='images/posing.png') }}" alt="posing" class="posing"/>
+{#            <p class="about-us">#}
+{#                We are a construction company specializing in siding...#}
+{#            </p>#}
+{#            <img src="{{ url_for('static', filename='images/posing.png') }}" alt="posing" class="posing"/>#}
+            <div class="about-media">
+                <div class="carousel">
+                    <button class="carousel-button carousel-button-left is-hidden">
+                        <img src="{{ url_for('static', filename='images/carousel/left-arrow-angle.svg') }}" alt="">
+                    </button>
+
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <li class="carousel-slide current-slide">
+                                <img src="{{ url_for('static', filename='images/houses/house1.jpg') }}" alt="house1" class="carousel-image">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="{{ url_for('static', filename='images/houses/house2.jpg') }}" alt="house2" class="carousel-image">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="{{ url_for('static', filename='images/houses/house3.jpg') }}" alt="house3" class="carousel-image">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="carousel-button carousel-button-right">
+                        <img src="{{ url_for('static', filename='images/carousel/right-arrow-angle.svg') }}" alt="">
+                    </button>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide"></button>
+                    <button class="carousel-indicator"></button>
+                    <button class="carousel-indicator"></button>
+                </div>
+            </div>
+
+            <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
         </div>
 
         <div class="block block3">
