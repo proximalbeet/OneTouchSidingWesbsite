@@ -1,7 +1,8 @@
 .carousel {
     position: relative;
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 3 / 2;
     margin: 0 auto;
 }
 
@@ -35,18 +36,21 @@
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(2.5);
     background: transparent;
     border: none;
     cursor: pointer;
+    filter: invert(1) drop-shadow(0 0 4px black);
 }
 
-.carousel-button-left {
-    left: -35px;
-}
+@media (min-width: 900px) {
+    .carousel-button-left {
+        left: -55px;
+    }
 
-.carousel-button-right {
-    right: -35px;
+    .carousel-button-right {
+        right: -55px;
+    }
 }
 
 .carousel-button img {
@@ -74,3 +78,9 @@
 }
 
 .is-hidden { display: none; }
+
+@media (max-width: 900px) {
+  .carousel-button {
+    display: none;
+  }
+}

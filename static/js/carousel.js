@@ -77,5 +77,53 @@ dotsNav.addEventListener('click', e => {
     moveToSlide(track, currentSlide, targetSlide);
     updateDots(currentDot, targetDot);
     hideShowArrows(slides, prevButton, nextButton, targetIndex);
-
 })
+
+// ----- MOBILE SWIPE SUPPORT -----
+let startX = 0;
+let isDragging = false;
+
+track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = 'none'; // disable animation while dragging
+});
+
+track.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    track.style.transform = `translateX(calc(-${track.querySelector('.current-slide').style.left} + ${diff}px))`;
+});
+
+track.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = 'transform 250ms ease-in';
+
+    const endX = e.changedTouches[0].clientX;
+    const movedBy = endX - startX;
+
+    const currentSlide = track.querySelector('.current-slide');
+    const currentDot = dotsNav.querySelector('.current-slide');
+    const currentIndex = slides.findIndex(slide => slide === currentSlide);
+
+    if (movedBy < -50 && currentIndex < slides.length - 1) {
+        // swipe left → next slide
+        const nextSlide = currentSlide.nextElementSibling;
+        const nextDot = currentDot.nextElementSibling;
+        moveToSlide(track, currentSlide, nextSlide);
+        updateDots(currentDot, nextDot);
+        hideShowArrows(slides, prevButton, nextButton, currentIndex + 1);
+    } else if (movedBy > 50 && currentIndex > 0) {
+        // swipe right → previous slide
+        const prevSlide = currentSlide.previousElementSibling;
+        const prevDot = currentDot.previousElementSibling;
+        moveToSlide(track, currentSlide, prevSlide);
+        updateDots(currentDot, prevDot);
+        hideShowArrows(slides, prevButton, nextButton, currentIndex - 1);
+    } else {
+        // not enough swipe → snap back
+        track.style.transform = `translateX(-${currentSlide.style.left})`;
+    }
+});

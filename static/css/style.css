@@ -8,14 +8,13 @@
   --dark: #1f2933;
   --dark-2: #2b2f33;
   --light: #ffffff;
-  --muted: #9ca3af;
   --accent: #f59e0b;
   --text: #9ca3af;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--dark);
+  background: var(--dark);
   color: var(--text);
   min-height: 200vh;
 }
@@ -40,7 +39,6 @@ header {
 
 .logo {
   height: 5em;
-  width: auto;
   flex-shrink: 0;
 }
 
@@ -63,7 +61,7 @@ header {
 }
 
 .appointment-btn {
-  background-color: var(--accent);
+  background: var(--accent);
   border: none;
   color: var(--dark);
   cursor: pointer;
@@ -75,40 +73,37 @@ header {
 }
 
 .appointment-btn:hover {
-  background-color: #d97706;
+  background: #d97706;
   transform: translateY(-2px);
 }
 
+.card,
+.block,
+.Contacting {
+  background: var(--dark-2);
+}
+
 .card {
-  background-color: var(--dark-2);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .block {
-  margin: 2rem auto;
+  margin: 5rem auto;
   padding: 3rem 2rem;
-  max-width: 1200px;
-  background-color: var(--dark-2);
+  max-width: 1500px;
   border-radius: 16px;
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.2em, 2vw, 2.4em);
+  box-shadow: 0 0 59px 3px rgba(245,159,11,0.65);
 }
 
 .block1 {
   background-image: url('static/images/background.png');
 }
 
-.block2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4vh;
-}
-
 .block5 {
   padding: 4vh;
-  gap: 100px;
 }
 
 .block6 {
@@ -127,14 +122,12 @@ header {
   width: 90%;
   margin: 0 auto;
   text-indent: 1.5em;
-  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: clamp(1.5em, 2vw, 1.6em);
   padding: 6vw;
-  overflow: hidden;
 }
 
 .testimonial {
@@ -147,10 +140,8 @@ header {
   border-left: 4px solid var(--accent);
   padding-left: 1em;
   margin-bottom: 2em;
-  color: var(--text);
   font-size: 0.9em;
   font-style: italic;
-
 }
 
 .other-services {
@@ -167,20 +158,14 @@ header {
 .drawing {
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow-y: auto;
 }
 
-.posing {
-  flex: 1 1 35%;
+.posing,
+.drawing {
+  background: #333;
   max-width: 75vh;
   max-height: 75vh;
-  overflow-y: auto;
-  background-color: #333;
-}
-
-.logo2,
-.logo3 {
-  flex: 1 1 50%;
-  overflow-y: auto;
 }
 
 .logo2 {
@@ -193,27 +178,24 @@ header {
   max-height: 100vh;
 }
 
-.drawing {
-  flex: 1 1 65%;
-  max-width: 75vh;
-  max-height: 75vh;
-  overflow-y: auto;
-  background-color: #333;
-}
-
 .Contacting {
-  background-color: var(--dark-2);
   border-radius: 20px;
   padding: 4rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 @media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
   .txt-btn-grp {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    margin-left: 0;
+    white-space: normal;
     gap: 10px;
+    text-align: center;
   }
 
   .button-text {
@@ -222,6 +204,78 @@ header {
 
   .appointment-btn {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
+  }
+
+  .block {
+    margin: 2rem 1rem;
+    padding: 2rem 1.2rem;
+    font-size: clamp(1em, 4vw, 1.4em);
+  }
+
+
+  .block7,
+  .other-services {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .testimonial {
+    column-count: 1;
+  }
+
+  .posing,
+  .drawing,
+  .logo2,
+  .logo3 {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .about-us {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .Contacting {
+    padding: 2rem 1.5rem;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .posing,
+  .drawing,
+  .logo2,
+  .logo3 {
+    max-height: 32vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .posing img,
+  .drawing img,
+  .logo2 img,
+  .logo3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+    .block7 {
+    align-items: stretch;
+  }
+
+  .drawing {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 2rem auto 0 auto;
+    display: block;
+  }
+
+   .block {
+    box-shadow: 0 0 25px 1.5px rgba(245,159,11,0.5);
   }
 }
