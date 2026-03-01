@@ -15,6 +15,8 @@
         <div class="txt-btn-grp">
             <h2 class="button-text">Call us at 231-343-0895 or schedule a free quote here:</h2>
             <button class="appointment-btn">Schedule an appointment</button>
+            <p>By submitting you agree to our <a href="/privacy-policy">Privacy Policy</a></p>
+
         </div>
     </header>
 
@@ -25,16 +27,11 @@
         </div>
 
         <div class="block block2">
-{#            <p class="about-us">#}
-{#                We are a construction company specializing in siding...#}
-{#            </p>#}
-{#            <img src="{{ url_for('static', filename='images/posing.png') }}" alt="posing" class="posing"/>#}
             <div class="about-media">
-                <div class="carousel">
-                    <button class="carousel-button carousel-button-left is-hidden">
+                <button class="carousel-button carousel-button-left is-hidden">
                         <img src="{{ url_for('static', filename='images/carousel/left-arrow-angle.svg') }}" alt="">
                     </button>
-
+                <div class="carousel">
                     <div class="carousel-track-container">
                         <ul class="carousel-track">
                             <li class="carousel-slide current-slide">
@@ -46,16 +43,24 @@
                             <li class="carousel-slide">
                                 <img src="{{ url_for('static', filename='images/houses/house3.jpg') }}" alt="house3" class="carousel-image">
                             </li>
+                            <li class="carousel-slide">
+                                <img src="{{ url_for('static', filename='images/houses/house4.jpg') }}" alt="house4" class="carousel-image">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="{{ url_for('static', filename='images/houses/house5.jpg') }}" alt="house5" class="carousel-image">
+                            </li>
                         </ul>
                     </div>
+                </div>
 
-                    <button class="carousel-button carousel-button-right">
+                <button class="carousel-button carousel-button-right">
                         <img src="{{ url_for('static', filename='images/carousel/right-arrow-angle.svg') }}" alt="">
                     </button>
-                </div>
 
                 <div class="carousel-nav">
                     <button class="carousel-indicator current-slide"></button>
+                    <button class="carousel-indicator"></button>
+                    <button class="carousel-indicator"></button>
                     <button class="carousel-indicator"></button>
                     <button class="carousel-indicator"></button>
                 </div>
@@ -70,7 +75,15 @@
                 <p>We install premium siding that lasts for decades and increases curb appeal.</p>
             </div>
             <div class="service-item">
-                <h2>Roof Repairs</h2>
+                <h2>Window Installation</h2>
+                <p>Fast, reliable roof repair and replacement services to protect your home.</p>
+            </div>
+            <div class="service-item">
+                <h2>Gutter Installation</h2>
+                <p>Fast, reliable roof repair and replacement services to protect your home.</p>
+            </div>
+             <div class="service-item">
+                <h2>Powerwashing and gutter cleanout</h2>
                 <p>Fast, reliable roof repair and replacement services to protect your home.</p>
             </div>
         </div>
@@ -120,7 +133,7 @@
                 <h6>231-343-0895</h6>
 
                 <h5>Email:</h5>
-                <h6>bkizzle1695.bk@gmail.com</h6>
+                <h6>brandonkenney.346@gmail.com</h6>
 
                 <h5>Social:</h5>
                 <h6>https://www.facebook.com/profile.php?id=100083180896576</h6>

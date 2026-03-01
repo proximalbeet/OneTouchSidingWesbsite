@@ -1,9 +1,17 @@
+.about-media {
+    position: relative;
+}
+
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     aspect-ratio: 3 / 2;
     margin: 0 auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.3);
+    background: #111;
 }
 
 .carousel-track-container {
@@ -25,36 +33,61 @@
     top: 0;
     bottom: 0;
     width: 100%;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.carousel-slide.current-slide {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .carousel-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.93) saturate(1.1);
+}
+
+/* Subtle dark vignette overlay on each slide */
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%);
+    pointer-events: none;
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) scale(2.5);
+    transform: translateY(-70%) scale(2.5);
     background: transparent;
     border: none;
     cursor: pointer;
     filter: invert(1) drop-shadow(0 0 4px black);
+    transition: transform 200ms ease, opacity 200ms ease;
+    opacity: 0.75;
+}
+
+.carousel-button:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(2.8);
 }
 
 @media (min-width: 900px) {
     .carousel-button-left {
-        left: -55px;
+        left: 65px;
     }
 
     .carousel-button-right {
-        right: -55px;
+        right: 65px;
     }
 }
 
 .carousel-button img {
-    width: 20px;
+    width: 30px;
 }
 
 .carousel-nav {
@@ -64,17 +97,19 @@
 }
 
 .carousel-indicator {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: none;
     margin: 0 6px;
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.25);
     cursor: pointer;
+    transition: background 300ms ease, transform 300ms ease;
 }
 
 .carousel-indicator.current-slide {
-    background: rgba(0,0,0,.9);
+    background: rgba(0,0,0,.85);
+    transform: scale(1.3);
 }
 
 .is-hidden { display: none; }
