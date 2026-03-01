@@ -22,8 +22,11 @@
 
     <main>
         <div class="block block1">
+            <div class="hero-content">
             <h1>Expert Siding & Construction Services</h1>
-            <p>Providing reliable, high-quality home improvement solutions across West Michigan. Your satisfaction is our priority!</p>
+            <p>Providing reliable, high-quality home improvement solutions across West Michigan.</p>
+            <a href="#quote" class="appointment-btn hero-btn">Get a Free Quote</a>
+    </div>
         </div>
 
         <div class="block block2">
@@ -69,33 +72,77 @@
             <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
         </div>
 
-        <div class="block block3">
-            <div class="service-item">
-                <h2>Siding Installation</h2>
-                <p>We install premium siding that lasts for decades and increases curb appeal.</p>
+        <div class="block block-services">
+        <h2 class="services-title">Our Services</h2>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="{{ url_for('static', filename='images/services/siding.jpg') }}" alt="Siding Installation" class="service-img">
+                </div>
+                <div class="service-info">
+                    <h3>Siding Installation</h3>
+                    <p>We install premium siding that protects your home from the elements while boosting curb appeal for decades to come.</p>
+                </div>
             </div>
-            <div class="service-item">
-                <h2>Window Installation</h2>
-                <p>Fast, reliable roof repair and replacement services to protect your home.</p>
+
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="{{ url_for('static', filename='images/services/windows.jpg') }}" alt="Window Installation" class="service-img">
+                </div>
+                <div class="service-info">
+                    <h3>Window Installation</h3>
+                    <p>Upgrade your home with energy-efficient windows that improve insulation, reduce noise, and enhance your home's appearance.</p>
+                </div>
             </div>
-            <div class="service-item">
-                <h2>Gutter Installation</h2>
-                <p>Fast, reliable roof repair and replacement services to protect your home.</p>
+
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="{{ url_for('static', filename='images/services/roofing.jpg') }}" alt="Gutter Installation" class="service-img">
+                </div>
+                <div class="service-info">
+                    <h3>Gutter Installation</h3>
+                    <p>Properly installed gutters direct water away from your foundation, preventing costly damage and keeping your home safe year-round.</p>
+                </div>
             </div>
-             <div class="service-item">
-                <h2>Powerwashing and gutter cleanout</h2>
-                <p>Fast, reliable roof repair and replacement services to protect your home.</p>
+
+            <div class="service-card">
+                <div class="service-img-wrap">
+                    <img src="{{ url_for('static', filename='images/services/landscape.jpg') }}" alt="Powerwashing and Gutter Cleanout" class="service-img">
+                </div>
+                <div class="service-info">
+                    <h3>Powerwashing & Gutter Cleanout</h3>
+                    <p>We blast away dirt, mold, and debris from your home's exterior and clear out clogged gutters to keep everything looking and functioning its best.</p>
+                </div>
             </div>
+
+        </div>
         </div>
 
         <div class="block block4">
-            <h2>Why Choose One Touch Siding?</h2>
-            <ul>
-                <li>Over 15 years of experience in siding & exterior projects</li>
-                <li>BBB A+ rated and fully insured</li>
-                <li>High-quality materials & expert craftsmanship</li>
-                <li>Customer-first approach and responsive support</li>
-            </ul>
+            <h2 class="section-title">Why Choose One Touch Siding?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <span class="why-icon">🏆</span>
+                    <h3>15+ Years of Experience</h3>
+                    <p>Over a decade of expertise in siding and exterior projects across West Michigan.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">✅</span>
+                    <h3>BBB A+ Rated & Fully Insured</h3>
+                    <p>We hold ourselves to the highest standards so you can hire with confidence.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">🔨</span>
+                    <h3>Expert Craftsmanship</h3>
+                    <p>Premium materials and skilled workmanship on every single job, no shortcuts.</p>
+                </div>
+                <div class="why-card">
+                    <span class="why-icon">🤝</span>
+                    <h3>Customer-First Approach</h3>
+                    <p>Your satisfaction drives everything we do, from the first call to the final nail.</p>
+                </div>
+            </div>
         </div>
 
         <div class="block block5">
@@ -117,10 +164,14 @@
         </div>
 
         <div class="block block6">
-            <h1>Be sure to check out these services!</h1>
-            <div class="other-services">
-                <img src="{{ url_for('static', filename='images/cleanQueens.png') }}" alt="logo2" class="logo2"/>
-                <img src="{{ url_for('static', filename='images/WMC.png') }}" alt="logo3" class="logo3"/>
+           <h2 class="section-title">Check Out These Services!</h2>
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <img src="{{ url_for('static', filename='images/cleanQueens.png') }}" alt="Clean Queens" class="partner-img"/>
+                </div>
+                <div class="partner-card">
+                    <img src="{{ url_for('static', filename='images/WMC.png') }}" alt="West Michigan Construction" class="partner-img"/>
+                </div>
             </div>
         </div>
 
@@ -140,5 +191,29 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="{{ url_for('static', filename='images/OTSLogo.png') }}" alt="logo" class="logo"/>
+                <p>Muskegon, MI</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>📞 (231) 769-3766</p>
+                <p>✉️ brandonkenney.346@gmail.com</p>
+                <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank">Facebook</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 OneTouch Siding. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
