@@ -74,7 +74,7 @@
           <div id="file-names"></div>
         </div>
 
-        <button class="submit-btn" id="submitBtn" onclick="submitQuote()">
+        <button class="submit-btn" id="submitBtn" onclick="openModal()">
           Request Quote →
         </button>
 
@@ -94,7 +94,7 @@
       </div>
       <div class="footer-contact">
         <p>📞 (231) 769-3766</p>
-        <p>✉️ brandonkenney.346@gmail.com</p>
+        <p>✉️ onetouchsiding@gmail.com</p>
         <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank">Facebook</a>
       </div>
     </div>
@@ -105,7 +105,18 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="{{ url_for('static', filename='js/quote.js') }}"></script>
+  <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h2 class="modal-title">Confirm Your Request</h2>
+        <p class="modal-sub">Please review your details before submitting.</p>
+        <div class="modal-summary" id="modalSummary"></div>
+        <div class="modal-buttons">
+          <button class="modal-cancel" onclick="closeModal()">Go Back</button>
+          <button class="modal-confirm appointment-btn" onclick="submitQuote()">Confirm & Send →</button>
+        </div>
+      </div>
+  </div>
 
+    <script src="{{ url_for('static', filename='js/quote.js') }}"></script>
 </body>
 </html>

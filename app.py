@@ -1,7 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+import sqlite3
+import sendgrid
+from sendgrid.helpers.mail import Mail as SendGridMail
+from sendgrid import SendGridAPIClient
 
 app = Flask(__name__)
 
+def init_db():
+    conn = sqlite3.connect('quotes.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS quote_requests (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            phone TEXT NOT NULL,
+            location TEXT NOT NULL,
+            service_type TEXT NOT NULL,
+            details TEXT,
+            submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
 
 @app.route('/')
 def home():
@@ -15,6 +38,52 @@ def quote():
 def privacy_policy():
     return render_template('privacy-policy.html')
 
+@app.route('/submit-quote', methods=['POST'])
+def submit_quote():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    location = request.form.get('location')
+    service_type = request.form.get('service_type')
+    details = request.form.get('details')
+
+    conn = sqlite3.connect('quotes.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO quote_requests (name, email, phone, location, service_type, details)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ''', (name, email, phone, location, service_type, details))
+    conn.commit()
+    conn.close()
+
+    # Create an automated email template
+    message = SendGridMail(
+        from_email=BUSINESS_EMAIL,
+        to_emails=BUSINESS_EMAIL,
+        subject=f'New Quote Request from {name}',
+        html_content=f'''
+               <h2>New Quote Request</h2>
+               <p><strong>Name:</strong> {name}</p>
+               <p><strong>Email:</strong> {email}</p>
+               <p><strong>Phone:</strong> {phone}</p>
+               <p><strong>Location:</strong> {location}</p>
+               <p><strong>Service:</strong> {service_type}</p>
+               <p><strong>Details:</strong> {details or 'None provided'}</p>
+           '''
+    )
+
+    try:
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        sg.send(message)
+    except Exception as e:
+        print(f'Email error: {e}')
+
+    return jsonify({'success': True, 'message': 'Quote received!'})
+
 # Implement a event tab that updates with current giveaways and etc
 if __name__ == '__main__':
     app.run()
+
+# Send database data to email
+SENDGRID_API_KEY = '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'
+BUSINESS_EMAIL = 'onetouchsiding@gmail.com'

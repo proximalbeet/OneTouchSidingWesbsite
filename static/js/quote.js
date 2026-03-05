@@ -66,6 +66,33 @@
       }
     }
 
+    function openModal() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const location = document.getElementById('location').value.trim();
+    const service = document.getElementById('service').value;
+
+    if (!name || !email || !phone || !location || !service) {
+      showToast('Please fill in all required fields.', 'error');
+      return;
+    }
+
+      document.getElementById('modalSummary').innerHTML = `
+        <div class="modal-summary-row"><span>Name</span><span>${name}</span></div>
+        <div class="modal-summary-row"><span>Email</span><span>${email}</span></div>
+        <div class="modal-summary-row"><span>Phone</span><span>${phone}</span></div>
+        <div class="modal-summary-row"><span>Location</span><span>${location}</span></div>
+        <div class="modal-summary-row"><span>Service</span><span>${service}</span></div>
+      `;
+
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
     function showToast(msg, type) {
       const toast = document.getElementById('toast');
       toast.textContent = msg;
