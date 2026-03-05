@@ -9,7 +9,7 @@ def home():
 
 @app.route('/schedule-a-quote')
 def quote():
-    return render_template('quote.html')
+    return render_template('schedule-quote.html')
 
 @app.route('/privacy-policy')
 def privacy_policy():

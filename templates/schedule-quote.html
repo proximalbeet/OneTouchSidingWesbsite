@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a Quote - One Touch Siding</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/quote.css') }}">
+</head>
+<body>
+
+  <header>
+    <img src="{{ url_for('static', filename='images/OTSLogo.png') }}" alt="logo" class="logo"/>
+    <div class="txt-btn-grp">
+      <h2 class="button-text">Call us at 231-343-0895</h2>
+      <p>By submitting you agree to our <a href="/privacy-policy">Privacy Policy</a></p>
+    </div>
+  </header>
+
+  <div class="quote-bg">
+    <div class="quote-wrapper">
+      <h1 class="quote-heading">Schedule a Quote</h1>
+      <p class="quote-sub">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+      <div class="quote-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="John Smith" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label for="location">Location / Address</label>
+            <input type="text" id="location" placeholder="123 Main St, City, State" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Type</label>
+          <select id="service">
+            <option value="" disabled selected>Select a service…</option>
+            <option value="Siding Installation">Siding Installation</option>
+            <option value="Window Installation">Window Installation</option>
+            <option value="Gutter Installation">Gutter Installation</option>
+            <option value="Powerwashing & Gutter Cleanout">Powerwashing & Gutter Cleanout</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Project Details (optional)</label>
+          <textarea id="details" placeholder="Describe your project, timeline, or any other details…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Photos (optional)</label>
+          <label class="file-label" for="photo-input">
+            <span class="icon">📷</span>
+            <span class="label-text">Click to upload photos</span>
+            <span class="label-hint">JPG, PNG, HEIC — up to 10 files</span>
+          </label>
+          <input type="file" id="photo-input" accept="image/*" multiple />
+          <div id="file-names"></div>
+        </div>
+
+        <button class="submit-btn" id="submitBtn" onclick="submitQuote()">
+          Request Quote →
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="{{ url_for('static', filename='images/OTSLogo.png') }}" alt="logo" class="logo"/>
+        <p>Muskegon, MI</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+      </div>
+      <div class="footer-contact">
+        <p>📞 (231) 769-3766</p>
+        <p>✉️ brandonkenney.346@gmail.com</p>
+        <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 OneTouch Siding. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="{{ url_for('static', filename='js/quote.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+.quote-bg {
+      min-height: 100vh;
+      background-image: url("{{ url_for('static', filename='images/background.png') }}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      padding: 4rem 1.5rem;
+    }
+
+    footer {
+        margin-top: 0;
+    }
+    .quote-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(31,41,51,0.75) 0%, rgba(31,41,51,0.92) 100%);
+    }
+
+    .quote-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .quote-heading {
+      text-align: center;
+      color: var(--light);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2em, 5vw, 3.5em);
+      margin-bottom: 0.4rem;
+    }
+
+    .quote-sub {
+      text-align: center;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .quote-form {
+      background: var(--dark-2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 0 59px 3px rgba(245, 159, 11, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--dark);
+      border: 1.5px solid rgba(245, 159, 11, 0.25);
+      border-radius: 8px;
+      color: var(--light);
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #555;
+    }
+
+    .form-group select option {
+      background: var(--dark);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .file-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed rgba(245, 159, 11, 0.35);
+      border-radius: 8px;
+      padding: 1.8rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: center;
+      gap: 0.4rem;
+    }
+
+    .file-label:hover {
+      border-color: var(--accent);
+      background: rgba(245, 159, 11, 0.05);
+    }
+
+    .file-label span.icon { font-size: 1.8rem; }
+
+    .file-label span.label-text {
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    .file-label span.label-hint {
+      color: #555;
+      font-size: 0.75rem;
+    }
+
+    #photo-input { display: none; }
+
+    #file-names {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-top: 0.3rem;
+      min-height: 1rem;
+    }
+
+    .submit-btn {
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: var(--dark);
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.85em 2em;
+      transition: background 0.3s, transform 0.2s;
+      align-self: flex-end;
+      min-width: 180px;
+    }
+
+    .submit-btn:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      background: #555;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 9999;
+      max-width: 300px;
+    }
+
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.success { background: var(--accent); color: var(--dark); }
+    .toast.error { background: #b91c1c; color: white; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .quote-form { padding: 1.5rem; }
+      .submit-btn { width: 100%; align-self: stretch; }
+    }
