@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
-import sendgrid
+import os
 from sendgrid.helpers.mail import Mail as SendGridMail
 from sendgrid import SendGridAPIClient
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
 def init_db():
@@ -25,6 +27,23 @@ def init_db():
     conn.close()
 
 init_db()
+
+
+def cleanup_old_records():
+    conn = sqlite3.connect('quotes.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        DELETE FROM quote_requests 
+        WHERE submitted_at < datetime('now', '-1 year')
+    ''')
+    conn.commit()
+    conn.close()
+
+cleanup_old_records()
+
+# Send database data to email
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+BUSINESS_EMAIL = os.getenv('BUSINESS_EMAIL')
 
 @app.route('/')
 def home():
@@ -78,12 +97,32 @@ def submit_quote():
     except Exception as e:
         print(f'Email error: {e}')
 
+    confirmation = SendGridMail(
+        from_email=BUSINESS_EMAIL,
+        to_emails=email,
+        subject='We received your quote request!',
+        html_content=f'''
+            <h2>Thanks, {name}!</h2>
+            <p>We've received your quote request and will get back to you as soon as possible.</p>
+            <br>
+            <p><strong>Here's what you submitted:</strong></p>
+            <p><strong>Service:</strong> {service_type}</p>
+            <p><strong>Location:</strong> {location}</p>
+            <p><strong>Details:</strong> {details or 'None provided'}</p>
+            <br>
+            <p>If you have any questions in the meantime, feel free to call us at <strong>231-343-0895</strong>.</p>
+            <p>— One Touch Siding</p>
+        '''
+    )
+
+    try:
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        sg.send(confirmation)
+    except Exception as e:
+        print(f'Confirmation email error: {e}')
+
     return jsonify({'success': True, 'message': 'Quote received!'})
 
 # Implement a event tab that updates with current giveaways and etc
 if __name__ == '__main__':
     app.run()
-
-# Send database data to email
-SENDGRID_API_KEY = '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'
-BUSINESS_EMAIL = 'onetouchsiding@gmail.com'
