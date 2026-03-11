@@ -559,3 +559,82 @@ footer {
     text-align: center;
   }
 }
+
+/* ── CONTACT BLOCK ── */
+.contact-title {
+  color: var(--light);
+  font-size: clamp(1.6em, 3vw, 2.4em);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.contact-subtitle {
+  color: var(--text);
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(245, 159, 11, 0.2);
+}
+
+.contact-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contact-label {
+  font-size: 0.7rem;
+  font-family: Arial, sans-serif;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+.contact-value {
+  color: var(--light);
+  font-size: 0.85rem;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-value:hover {
+  color: var(--accent);
+}
+
+.contact-icon-fa {
+  font-size: 1.6rem;
+  color: #1877F2; /* official Facebook blue */
+  flex-shrink: 0;
+}

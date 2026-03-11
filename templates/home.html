@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/carousel.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
     <header>
@@ -234,19 +236,38 @@
         </div>
 
         <div class="block block7">
-            <img src="{{ url_for('static', filename='images/house.jpg') }}" alt="drawing" class="drawing"/>
+          <img src="{{ url_for('static', filename='images/house.jpg') }}" alt="drawing" class="drawing"/>
 
-            <div class="Contacting">
-                <h1>Contact Us Today!</h1>
-                <h5>Phone:</h5>
-                <h6>231-343-0895</h6>
+          <div class="Contacting">
+            <h2 class="contact-title">Contact Us Today</h2>
+            <p class="contact-subtitle">Ready to transform your home? Reach out — we'd love to help.</p>
 
-                <h5>Email:</h5>
-                <h6>onetouchsiding@gmail.com</h6>
+            <div class="contact-items">
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-detail">
+                  <span class="contact-label">Phone</span>
+                  <a href="tel:2313430895" class="contact-value">231-343-0895</a>
+                </div>
+              </div>
 
-                <h5>Social:</h5>
-                <h6>https://www.facebook.com/profile.php?id=100083180896576</h6>
+              <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <div class="contact-detail">
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:onetouchsiding@gmail.com" class="contact-value">onetouchsiding@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="contact-icon"><i class="fa-brands fa-facebook contact-icon-fa"></i></span>
+                <div class="contact-detail">
+                  <span class="contact-label">Facebook</span>
+                  <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank" class="contact-value">One Touch Siding</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
     </main>
 
@@ -265,7 +286,7 @@
             <div class="footer-contact">
                 <p>📞 (231) 343-0895</p>
                 <p>✉️ onetouchsiding@gmail.com</p>
-                <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank">Facebook</a>
+                <a href="https://www.facebook.com/profile.php?id=100083180896576" target="_blank"><i class="fa-brands fa-facebook contact-icon-fa"></i> Facebook</a>
                 <a href="https://www.bbb.org/us/mi/muskegon/profile/siding-contractors/one-touch-siding-0372-38310258" target="_blank">Better Business Bureau</a>
                 <p>License No: 242600146</p>
             </div>
