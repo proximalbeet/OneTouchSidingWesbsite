@@ -57,10 +57,6 @@ def quote():
 def privacy_policy():
     return render_template('privacy-policy.html')
 
-@app.route('/careers')
-def careers():
-    return render_template('careers.html')
-
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
     name = request.form.get('name')

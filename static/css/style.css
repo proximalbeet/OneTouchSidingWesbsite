@@ -638,11 +638,3 @@ footer {
   color: #1877F2; /* official Facebook blue */
   flex-shrink: 0;
 }
-
-/* Careers Page */
-.google-form-wrapper {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
